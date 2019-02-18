@@ -1,0 +1,15 @@
+<h1>The word game</h1>
+
+<div class="letter-grid">
+<% @letters.each do |letter| %>
+<div> <%= letter %> </div>
+<% end %>
+</div>
+
+<form action="/score" method="post" class="form-group d-flex justify-content-center">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+  <input type="text" name="type_word" class="form-control w-25" placeholder="type a word">
+  <input type="submit" class="btn btn-primary">
+</form>
+
